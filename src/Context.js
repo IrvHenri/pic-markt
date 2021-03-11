@@ -4,19 +4,15 @@ const Context = React.createContext();
 function ContextProvider({ children }) {
   const [allPhotos, setAllPhotos] = useState([]);
 
-  async function getAPI() {
-    await fetch(
-      `https://raw.githubusercontent.com/IrvHenri/pic-mrkt-imgs/main/images.json`
-    )
-      .then((res) => res.json())
-      .then((data) => setAllPhotos({ data }));
-  }
-  console.log(allPhotos);
+  const url =
+    "https://raw.githubusercontent.com/IrvHenri/pic-mrkt-imgs/main/images.json";
   useEffect(() => {
-    getAPI();
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setAllPhotos(data));
   }, []);
 
-  return <Context.Provider value={allPhotos}>{children}</Context.Provider>;
+  return <Context.Provider value={{ allPhotos }}>{children}</Context.Provider>;
 }
 
 export { ContextProvider, Context };
