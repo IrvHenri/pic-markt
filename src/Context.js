@@ -3,12 +3,11 @@ const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [allPhotos, setAllPhotos] = useState([]);
+  const [cartItems, SetCartItems] = useState([]);
 
   function toggleFavorite(id) {
     const updatedArr = allPhotos.map((photo) => {
       if (photo.id === id) {
-        console.log(id);
-        console.log(!photo.isFavorite);
         return { ...photo, isFavorite: !photo.isFavorite };
       }
       return photo;
@@ -16,6 +15,12 @@ function ContextProvider({ children }) {
 
     setAllPhotos(updatedArr);
   }
+
+  function addToCart(newItem) {
+    SetCartItems((prevCartItems) => [...prevCartItems, newItem]);
+  }
+
+  console.log(cartItems);
 
   const url =
     "https://raw.githubusercontent.com/IrvHenri/pic-mrkt-imgs/main/images.json";
@@ -26,7 +31,7 @@ function ContextProvider({ children }) {
   }, []);
 
   return (
-    <Context.Provider value={{ allPhotos, toggleFavorite }}>
+    <Context.Provider value={{ allPhotos, toggleFavorite, addToCart }}>
       {children}
     </Context.Provider>
   );
