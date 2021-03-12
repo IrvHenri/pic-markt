@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
+import useHover from "../hooks/useHover";
 import PropTypes from "prop-types";
-
 import { Context } from "../Context";
 const Image = ({ className, img }) => {
-  const [hovered, setHovered] = useState(false);
+  const [hovered, onMouseEnter, onMouseLeave] = useHover();
   const { toggleFavorite, addToCart, cartItems, removeFromCart } = useContext(
     Context
   );
@@ -46,8 +46,8 @@ const Image = ({ className, img }) => {
   return (
     <div
       className={`${className} image-container`}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      onMouseEnter={() => onMouseEnter()}
+      onMouseLeave={() => onMouseLeave()}
     >
       <img src={img.url} alt="random" className="image-grid" />
       {heartIcon()}
