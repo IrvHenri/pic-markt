@@ -20,7 +20,9 @@ function ContextProvider({ children }) {
     SetCartItems((prevCartItems) => [...prevCartItems, newItem]);
   }
 
-  console.log(cartItems);
+  function removeFromCart(id) {
+    SetCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  }
 
   const url =
     "https://raw.githubusercontent.com/IrvHenri/pic-mrkt-imgs/main/images.json";
@@ -31,7 +33,15 @@ function ContextProvider({ children }) {
   }, []);
 
   return (
-    <Context.Provider value={{ allPhotos, toggleFavorite, addToCart }}>
+    <Context.Provider
+      value={{
+        allPhotos,
+        toggleFavorite,
+        addToCart,
+        cartItems,
+        removeFromCart,
+      }}
+    >
       {children}
     </Context.Provider>
   );
