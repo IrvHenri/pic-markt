@@ -3,7 +3,7 @@ const Context = React.createContext();
 
 function ContextProvider({ children }) {
   const [allPhotos, setAllPhotos] = useState([]);
-  const [cartItems, SetCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState([]);
 
   function toggleFavorite(id) {
     const updatedArr = allPhotos.map((photo) => {
@@ -17,11 +17,15 @@ function ContextProvider({ children }) {
   }
 
   function addToCart(newItem) {
-    SetCartItems((prevCartItems) => [...prevCartItems, newItem]);
+    setCartItems((prevCartItems) => [...prevCartItems, newItem]);
   }
 
   function removeFromCart(id) {
-    SetCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  }
+
+  function clearCart() {
+    setCartItems([]);
   }
 
   const url =
@@ -40,6 +44,7 @@ function ContextProvider({ children }) {
         addToCart,
         cartItems,
         removeFromCart,
+        clearCart,
       }}
     >
       {children}
