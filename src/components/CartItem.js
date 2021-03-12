@@ -1,23 +1,36 @@
-import React, { useContext } from "react";
-import useHover from "../hooks/useHover";
+import React, { useState, useContext } from "react";
+import PropTypes from "prop-types";
 import { Context } from "../Context";
+import useHover from "../hooks/useHover";
+
 function CartItem({ item }) {
-  const [hovered, onMouseEnter, onMouseLeave] = useHover();
+  // const [hovered, setHovered] = useState(false)
+  const [hovered, leave, enter] = useHover();
   const { removeFromCart } = useContext(Context);
-  const trashFill = hovered ? "fill" : "line";
+
+  const iconClassName = hovered ? "ri-delete-bin-fill" : "ri-delete-bin-line";
+
   return (
     <div className="cart-item">
       <i
-        onMouseEnter={() => onMouseEnter()}
-        onMouseLeave={() => onMouseLeave()}
-        className={`ri-delete-bin-${trashFill}`}
+        className={iconClassName}
         onClick={() => removeFromCart(item.id)}
+        onMouseEnter={() => enter()}
+        onMouseLeave={() => leave()}
       ></i>
+
       <img src={item.url} width="130px" />
+
       <p>{item.title}</p>
       <p>${item.price}</p>
     </div>
   );
 }
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    url: PropTypes.string.isRequired,
+  }),
+};
 
 export default CartItem;

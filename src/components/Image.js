@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import useHover from "../hooks/useHover";
 import PropTypes from "prop-types";
 import { Context } from "../Context";
-const Image = ({ className, img }) => {
-  const [hovered, onMouseEnter, onMouseLeave] = useHover();
+function Image({ className, img }) {
+  const [hovered, leave, enter] = useHover();
   const { toggleFavorite, addToCart, cartItems, removeFromCart } = useContext(
     Context
   );
@@ -46,15 +46,15 @@ const Image = ({ className, img }) => {
   return (
     <div
       className={`${className} image-container`}
-      onMouseEnter={() => onMouseEnter()}
-      onMouseLeave={() => onMouseLeave()}
+      onMouseEnter={() => enter()}
+      onMouseLeave={() => leave()}
     >
       <img src={img.url} alt="random" className="image-grid" />
       {heartIcon()}
       {cartIcon()}
     </div>
   );
-};
+}
 
 Image.propTypes = {
   className: PropTypes.string,

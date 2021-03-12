@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 
-const useHover = () => {
+function useHover() {
   const [hovered, setHovered] = useState(false);
-  function onMouseEnter() {
+
+  function enter() {
     setHovered(true);
   }
-  function onMouseLeave() {
+
+  function leave() {
     setHovered(false);
   }
-  return [hovered, onMouseEnter, onMouseLeave];
-};
+
+  return [hovered, leave, enter];
+}
 
 export default useHover;

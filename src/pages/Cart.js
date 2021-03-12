@@ -23,6 +23,7 @@ function Cart() {
       setTimeout(() => {
         console.log("Order placed!");
         setButtonText("Place Order");
+        clearCart();
       }, 3000);
     } else return;
   }
