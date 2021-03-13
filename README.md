@@ -5,7 +5,7 @@ An e-commerce prototype app where users can favorite and add photos to a cart .
 
 ## Demo
 
-
+https://pik-markt.herokuapp.com/
 
 ### Preview 
 
