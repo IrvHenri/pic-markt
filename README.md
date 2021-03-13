@@ -1,6 +1,6 @@
 # Pik Markt
 
-An e-commerce prototype app where users can favorite and add photos to a cart . 
+An e-commerce prototype app where users can favorite and add photos to a cart. 
 
 
 ## Demo
