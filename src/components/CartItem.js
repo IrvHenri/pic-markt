@@ -20,9 +20,12 @@ function CartItem({ item }) {
       ></i>
 
       <img src={item.url} width="130px" />
-
-      <p>{item.title}</p>
-      <p>${item.price}</p>
+      <div className="cart-item-details">
+        <p>
+          "{item.title}" by {item.artist}
+        </p>
+        <p>${item.price}</p>
+      </div>
     </div>
   );
 }

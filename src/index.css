@@ -7,7 +7,7 @@
 :root {
   --black: #150605;
   --red: #ea453c;
-  --green: #026633;
+  --green: #19a119;
   --light-blue: #effbfe;
   --blue: #ace6ec;
 }
@@ -43,6 +43,7 @@ header {
 
 a {
   text-decoration: none;
+  display: block;
 }
 
 a:visited {
@@ -132,9 +133,24 @@ img.image-grid {
   opacity: 0.7;
 }
 
+/* ------------ */
+/* ------Artists------ */
+/* -------------- */
+.artists-page {
+  text-align: center;
+}
+
+.artists-page h2 {
+  margin-bottom: 5rem;
+}
+
+.artists-card-container {
+  width: fit-content;
+}
+
 .artist-card {
-  max-width: 300px;
-  max-height: 325px;
+  width: 300px;
+  height: 325px;
   border-radius: 1em;
   position: relative;
 }
@@ -146,17 +162,16 @@ img.image-grid {
   border-radius: inherit;
 }
 
-.artist-info,
-.artist-collection-card-info {
+.artist-info {
   position: absolute;
   text-align: center;
-  padding: 1em;
+  padding: 0.5em;
   background-color: var(--light-blue);
   width: 70%;
   box-shadow: 0px 1px 10px rgb(0 0 0 / 50%);
   color: black;
   left: 50px;
-  bottom: -180px;
+  bottom: -50px;
   border-radius: 1em;
 }
 
@@ -188,12 +203,37 @@ img.image-grid {
   border-radius: inherit;
 }
 
+.artist-collection-card-info {
+  position: absolute;
+  text-align: center;
+  padding: 0.5em;
+  background-color: var(--light-blue);
+  width: 70%;
+  box-shadow: 0px 1px 10px rgb(0 0 0 / 50%);
+  color: black;
+  left: 50px;
+  bottom: -150px;
+  border-radius: 1em;
+}
+
 /* --------- */
 /* ----CART STYLING----- */
 /* --------- */
 
-main.cart-page {
+.cart-page {
   padding: 10px;
+  border: 2px solid blue;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.cart-page h1 {
+  letter-spacing: 1px;
+  font-size: 45px;
+}
+
+.cart-item-details {
+  text-align: right;
 }
 
 .cart-page div.order-button {
@@ -201,11 +241,23 @@ main.cart-page {
   justify-content: center;
 }
 
+.order-button {
+  margin-top: 5rem;
+}
+
 div.order-button > button {
   border-color: var(--black);
+  background-color: var(--green);
+  color: var(--light-blue);
   cursor: pointer;
-  padding: 15px;
+  padding: 0.5em 1.5em;
+  font-size: 1.4rem;
+  border-radius: 10px;
   transition: all 0.2s ease-in-out;
+}
+
+div.order-button > button:hover {
+  transform: scale(1.05);
 }
 
 div.order-button > button:focus {
@@ -213,7 +265,8 @@ div.order-button > button:focus {
 }
 
 div.order-button > button:disabled {
-  border-color: lightgray;
+  background: var(--blue);
+  color: black;
 }
 
 .cart-item {

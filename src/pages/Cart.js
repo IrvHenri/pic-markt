@@ -5,7 +5,7 @@ import CartItem from "../components/CartItem";
 
 function Cart() {
   const [buttonText, setButtonText] = useState("Place Order");
-
+  const [buttonDisable, setButtonDisable] = useState(false);
   const { cartItems, clearCart } = useContext(Context);
   const cartItemElements = cartItems.map((item) => (
     <CartItem key={item.id} item={item} />
@@ -20,6 +20,7 @@ function Cart() {
   function submitOrder() {
     if (cartItems.length > 0) {
       setButtonText("Ordering...");
+      setButtonDisable(true);
       setTimeout(() => {
         console.log("Order placed!");
         setButtonText("Place Order");
@@ -36,7 +37,9 @@ function Cart() {
 
       {cartItems.length > 0 ? (
         <div className="order-button">
-          <button onClick={() => submitOrder()}>{buttonText}</button>
+          <button disabled={buttonDisable} onClick={() => submitOrder()}>
+            {buttonText}
+          </button>
         </div>
       ) : (
         <p>You have no items in your cart.</p>
