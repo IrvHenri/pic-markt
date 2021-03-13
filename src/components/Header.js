@@ -6,16 +6,23 @@ function Header() {
   return (
     <header>
       <Link to="/">
-        {" "}
-        <h2>Pic Markt</h2>
+        <span className="logo-name">
+          <h2>Pik Markt</h2> <i class="ri-store-line"></i>
+        </span>
       </Link>
-      <Link to="/cart">
-        <i
-          className={`ri-shopping-cart-${
-            cartItems.length > 0 ? "fill" : "line"
-          } ri-fw ri-2x`}
-        ></i>
-      </Link>
+
+      <nav className="nav-container">
+        <Link className="nav-link" to="/artists">
+          <h2>Artists</h2>
+        </Link>
+        <Link to="/cart">
+          <i
+            className={`ri-shopping-cart-${
+              cartItems.length > 0 ? "fill" : "line"
+            } ri-fw ri-2x`}
+          ></i>
+        </Link>
+      </nav>
     </header>
   );
 }

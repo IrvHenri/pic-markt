@@ -9,7 +9,7 @@ function Photos() {
   const imageElements = allPhotos.map((img, i) => (
     <Image key={img.id} img={img} className={getClass(i)} />
   ));
-  return <main className="photos">{imageElements}</main>;
+  return <main className="photos container">{imageElements}</main>;
 }
 
 export default Photos;
