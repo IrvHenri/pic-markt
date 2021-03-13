@@ -15,7 +15,8 @@ function Cart() {
     .map((item) => Number(item.price))
     .reduce(function (acc, price) {
       return acc + price;
-    }, 0);
+    }, 0)
+    .toFixed(2);
 
   function submitOrder() {
     if (cartItems.length > 0) {
@@ -42,7 +43,7 @@ function Cart() {
           </button>
         </div>
       ) : (
-        <p>You have no items in your cart.</p>
+        <p className="empty-cart-message">You have no items in your cart.</p>
       )}
     </main>
   );

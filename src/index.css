@@ -222,7 +222,6 @@ img.image-grid {
 
 .cart-page {
   padding: 10px;
-  border: 2px solid blue;
   width: 80%;
   margin: 0 auto;
 }
@@ -288,6 +287,10 @@ div.order-button > button:disabled {
 .cart-page .total-cost {
   text-align: right;
   font-size: 1.3em;
+}
+
+.empty-cart-message {
+  text-align: center;
 }
 
 .cart {

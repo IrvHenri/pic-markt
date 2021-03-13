@@ -5,7 +5,7 @@ const ArtistCard = () => {
     <div className="artist-card">
       <img
         src="https://raw.githubusercontent.com/IrvHenri/pic-mrkt-imgs/main/arun-clarke-X82LqpHBA7g-unsplash.jpg"
-        alt="person taking photo"
+        alt="artist"
         className="artist-img"
       />
       <div className="artist-info">

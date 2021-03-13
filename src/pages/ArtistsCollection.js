@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import ArtistCard from "../components/ArtistCard";
 import Image from "../components/Image";
 import ArtistCollectionCard from "../components/ArtistCollectionCard";
 import { Context } from "../Context";
@@ -10,9 +9,13 @@ function ArtistsCollection() {
   const { allPhotos } = useContext(Context);
   const { artistName } = useParams();
 
-  const photos = allPhotos.map((img, i) => (
-    <Image key={img.id} img={img} className={getClass(i)} />
-  ));
+  const photos = allPhotos.map((img, i) => {
+    if (img.artist === artistName) {
+      return <Image key={img.id} img={img} className={getClass(i)} />;
+    } else {
+      return null;
+    }
+  });
   return (
     <div className="artist-collection container">
       <ArtistCollectionCard />

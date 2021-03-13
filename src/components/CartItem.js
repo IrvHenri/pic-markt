@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
 import { Context } from "../Context";
 import useHover from "../hooks/useHover";
@@ -19,7 +19,7 @@ function CartItem({ item }) {
         onMouseLeave={() => leave()}
       ></i>
 
-      <img src={item.url} width="130px" />
+      <img src={item.url} width="130px" alt="profile" />
       <div className="cart-item-details">
         <p>
           "{item.title}" by {item.artist}
