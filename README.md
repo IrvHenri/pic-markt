@@ -1,3 +1,35 @@
+# Pik Markt
+
+An e-commerce prototype app where users can favorite and add photos to a cart . 
+
+
+## Demo
+
+
+
+### Preview 
+
+
+
+## What I learned
+
+- How to use the "useParams" react router hook which helps avoid having to add extra routes to a page.
+- How to typecheck with the Proptypes library in order to ensure the correct type of data is passed through my componenets.
+- How to nest routes in a page
+ 
+
+## Tech Stack
+
+- CSS
+- ReactJs
+- React Router
+- Prop-types library
+
+
+## License
+MIT © [Irving Henriquez](https://github.com/IrvHenri)
+
+
 ### React README
 
 
